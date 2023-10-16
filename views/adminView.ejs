@@ -1,0 +1,91 @@
+<!-- include header -->
+
+<%- include('partial/_header')%>
+
+<!-- /include header -->
+
+<main id="site-main">
+
+  <div class="container">
+    <div class="container">
+      <div class="text-center">
+        <h1 class="nav-brand text-dark"> Welcome <%= userName %> </h1>
+      </div>
+    </div>
+    <div class="container">
+      <div class="container logout-button">
+        <div class="box-nav d-flex justify-between">
+          <!-- whaterver we give the name equal to href is the route ejs will set. And we can call the page using app.get('/add-user-page', (req,res)=>{ -->
+          <a href="/logout" class="border-shadow">
+            <span class="text-gradient">Logout</span>
+          </a>
+        </div>
+      </div>
+
+      <form action="" method="" id=add_user enctype="multipart/form-data">
+        <!-- adding code for viewing users and their files -->
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>UserName</th>
+              <th>Email</th>
+              <!-- <th>update</th>
+              <th>delete</th>
+              <th>Download link</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <% usersToDisplay.forEach(function(users) { %>
+              <tr>
+                <td><%= users.name %></td>
+                <td><%= users.email %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </form>
+
+      <form action="/update" method="POST" id="add_user" enctype="multipart/form-data">
+        <!-- adding code for viewing users and their files -->
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>FileName</th>
+              <th>Email</th>
+              <th>Delete</th>
+              <th>Download link</th>
+              <!-- Add a new table header for "Modified Date" -->
+              <th>Modified Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% filesToDisplay.forEach(function(files) { %>
+              <tr>
+                <td><%= files.fileName %></td>
+                <td><%= files.email %></td>
+                <td>
+                  <a href="<%= `${files.cloudfrontUrl}/${files.fileUrl}` %>" download="<%= files.fileName %>" class="btn border-shadow update">
+                    <span class="text-gradient"><i class="fas fa-times"></i></span>
+                  </a>
+                </td>
+                <td>
+                  <a href="<%= `${files.cloudfrontUrl}/${files.fileUrl}` %>" download="<%= files.fileName %>" class="btn border-shadow update">
+                    <span class="text-gradient"><i class="fas fa-download"></i></span>
+                  </a>
+                </td>
+                <td><%= files.modifiedDate %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </form>
+
+      
+
+    </div>
+
+  </div>
+
+</main>
+
+

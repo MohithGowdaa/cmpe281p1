@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User List</title>
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+  <h1>User List</h1>
+  
+  <!-- Display the list of users -->
+  <ul>
+    <% usersToDisplay.forEach(function(user) { %>
+      <li>
+        <strong>Name:</strong> <%= user.name %><br>
+        <strong>Email:</strong> <%= user.email %><br>
+        <strong>Password:</strong> <%= user.password %>
+      </li>
+    <% }); %>
+  </ul>
+  
+  <a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
+<!-- include footer -->
+
+<%- include('partial/_footer')%>
+
+<!-- /include footer -->

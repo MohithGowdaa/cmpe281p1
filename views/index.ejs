@@ -1,0 +1,48 @@
+<!-- include header -->
+
+<%- include('partial/_header')%>
+
+<!-- /include header -->
+
+<main id="site-main">
+    <div class="container">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="nav-brand text-dark"> Login </h1>   
+            </div>
+       </div>
+
+         <!-- form handling -->
+     <form action="/login" method="POST" id="login_form">
+        <div class="new_user">
+            <div class="form-group">
+                <!-- <label for="name" class="text-light">Username</label> -->
+                <!-- <input type="hidden" name="id" value=""> -->
+                <input type="text" name="email" value="" placeholder="Email">
+            </div>
+            <div class="form-group">
+                <!-- <label for="Password" class="text-light">Password</label> -->
+                <input type="password" name="password" value="" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn text-dark update">Login</button>
+            </div>
+    
+        </div>
+        </form>
+        <div class="container">
+            <div class="box-nav d-flex justify-between" >
+                <!-- whaterver we give the name equal to href is the route ejs will set . And we can call the page using app.get('/add-user-page', (req,res)=>{ -->
+                <a href="/add-user-route" class="border-shadow">
+                    <span class="text-gradient">New User</span>
+                </a>
+            </div> 
+      </div>
+     
+    </main>
+
+<!-- include footer -->
+
+<%- include('partial/_footer')%>
+
+<!-- /include footer -->

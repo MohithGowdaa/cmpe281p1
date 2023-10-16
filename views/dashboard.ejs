@@ -1,0 +1,69 @@
+<!-- include header -->
+<%- include('partial/_header') %>
+
+<main id="site-main" class="container">
+  <div class="text-center">
+    <h1 class="nav-brand text-dark">Welcome <%= userName %></h1>
+  </div>
+
+  <div class="container logout-button">
+    <div class="box-nav d-flex justify-between">
+      <a href="/logout" class="border-shadow">
+        <span class="text-gradient">Logout</span>
+      </a>
+    </div>
+  </div>
+
+  <form action="/update" method="POST" id="add_user" enctype="multipart/form-data">
+    <!-- Adding code for viewing users and their files -->
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>File Name</th>
+          <th>Description</th>
+          <th>Delete</th>
+          <th>Download Link</th>
+          <th>Modified Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if (filesToDisplay && filesToDisplay.length > 0) { %>
+          <% filesToDisplay.forEach(function(files) { %>
+            <tr>
+              <td><%= files.fileName %></td>
+              <td><a href="<%= files.fileUrl %>" target="_blank"><%= files.fileDesc %></a></td>
+              <td>
+                <a href="/delete-file?email=<%= email %>&url=<%= files.fileUrl %>" class="btn border-shadow delete-file">
+                  <span class="text-gradient"><i class="fas fa-times"></i></span>
+                </a>
+              </td>
+              <td>
+                <a href="<%= `${files.cloudfrontUrl}/${files.fileUrl}` %>" download="<%= files.fileName %>" class="btn border-shadow update">
+                  <span class="text-gradient"><i class="fas fa-download"></i></span>
+                </a>
+              </td>
+              <td><%= files.modifiedDate %></td>
+            </tr>
+          <% }) %>
+        <% } else { %>
+          <tr>
+            <td colspan="5">No files to display.</td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </form>
+
+  <form action="/upload" method="POST" id="add_user" enctype="multipart/form-data">
+    <div class="form-group">
+      <button type="submit" class="btn text-dark update">Upload New File</button>
+    </div>
+    <div class="form-group">
+      <input type="file" name="image" value="" placeholder="" />
+    </div>
+  </form>
+</main>
+
+<!-- include footer -->
+<%- include('partial/_footer') %>
+<!-- /include footer -->

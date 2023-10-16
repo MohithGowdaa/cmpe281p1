@@ -1,0 +1,53 @@
+<!-- include header -->
+
+<%- include('partial/_header')%>
+
+<!-- /include header -->
+
+    <!--/ header -->
+    <main id="site-main">
+    <div class="container">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="nav-brand text-dark"> Register new user </h1>   
+            </div>
+       </div>
+
+         <!-- form handling -->
+         <form action="/api/users" method="POST" id="add_user">
+            <div class="new_user">
+                <div class="form-group">
+                    <label for="name" class="text-light">Enter Username for new user</label>
+                    <!-- <input type="hidden" name="id" value=""> -->
+                    <input type="text" name="name" value="" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="name" class="text-light">Enter email for new user</label>
+                    <!-- <input type="hidden" name="id" value=""> -->
+                    <input type="text" name="email" value="" placeholder="Email">
+                </div>
+                 <div class="form-group">
+                        <label for="name" class="text-light">Select a Password for the user</label>
+                        <!-- <input type="hidden" name="id" value=""> -->
+                        <input type="text" name="password" value="" placeholder="Password">
+                    </div>
+                <!-- <div class="form-group">
+                    <label for="Password" class="text-light">Password</label>
+                    <input type="password" name="password" value="" placeholder="********">
+                </div> -->
+                <div class="form-group">
+                    <button type="submit" class="btn text-dark update">Register User</button>
+                </div>
+        
+            </div>
+            </form>
+      </div>
+     
+    </main>
+    
+
+<!-- include footer -->
+
+<%- include('partial/_footer')%>
+
+<!-- /include footer -->
