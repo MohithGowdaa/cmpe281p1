@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <main id="site-main">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="nav-brand text-dark">Login</h1>
+            </div>
+
+            <!-- form handling -->
+            <form action="/login" method="POST" id="login_form">
+                <div class="new_user">
+                    <div class="form-group">
+                        <input type="text" name="email" value="" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" value="" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn text-dark update">Login</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="container">
+                <div class="box-nav d-flex justify-between">
+                    <!-- Link to add-user.html when "New User" is clicked -->
+                    <a href="add_user.html" class="border-shadow">
+                        <span class="text-gradient">New User</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
